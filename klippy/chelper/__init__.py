@@ -21,6 +21,7 @@ SOURCE_FILES = [
     'pollreactor.c', 'msgblock.c', 'trdispatch.c',
     'kin_cartesian.c', 'kin_corexy.c', 'kin_corexz.c', 'kin_delta.c',
     'kin_deltesian.c', 'kin_polar.c', 'kin_rotary_delta.c', 'kin_winch.c',
+    'kin_parallelscara.c',
     'kin_extruder.c', 'kin_shaper.c',
 ]
 DEST_LIB = "c_helper.so"
@@ -135,6 +136,12 @@ defs_kin_rotary_delta = """
 defs_kin_winch = """
     struct stepper_kinematics *winch_stepper_alloc(double anchor_x
         , double anchor_y, double anchor_z);
+"""
+
+defs_kin_parallelscara = """
+    struct stepper_kinematics *parallelscara_stepper_alloc(
+        double shoulder_radius, double shoulder_height
+        , double angle, double upper_arm, double lower_arm);
 """
 
 defs_kin_extruder = """
